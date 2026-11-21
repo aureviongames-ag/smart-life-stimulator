@@ -1,0 +1,23 @@
+    </p>
+</section>
+
+<footer>
+    <p>© 2026 <span>FOOTBALL ZONE</span></p>
+    <p>Made for football lovers ⚽</p>
+</footer>
+
+<script>
+function subscribe(event) {
+    event.preventDefault();
+
+    const email = document.getElementById("email").value;
+
+    document.getElementById("message").textContent =
+        "Thanks for your interest! Email entered: " + email;
+
+    document.getElementById("email").value = "";
+}
+</script>
+
+</body>
+</html>
