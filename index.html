@@ -4,194 +4,193 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Football Zone | Football News</title>
+<title>Football Zone | Home</title>
 
 <style>
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
-    background: #080d0b;
+    background: #080b0a;
     color: white;
     font-family: Arial, sans-serif;
-    line-height: 1.6;
 }
 
 header {
-    background: #101b15;
-    padding: 20px;
-    border-bottom: 2px solid #00e676;
+    background: #101512;
+    padding: 18px 7%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #b99a45;
 }
 
 .logo {
-    font-size: 25px;
+    color: #e5c45c;
+    font-size: 23px;
     font-weight: bold;
-    color: #00e676;
+}
+
+nav {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    margin: 8px;
     font-size: 14px;
 }
 
 nav a:hover {
-    color: #00e676;
+    color: #e5c45c;
 }
 
 .hero {
-    padding: 65px 20px;
+    min-height: 420px;
+    padding: 100px 8%;
+    background: linear-gradient(90deg, #080b0a, #17251b);
     text-align: center;
-    background: linear-gradient(135deg, #123c27, #080d0b);
 }
 
 .hero h1 {
-    font-size: 38px;
-    margin-bottom: 12px;
-}
-
-.hero span {
-    color: #00e676;
+    font-size: 46px;
+    color: #e5c45c;
+    margin-bottom: 18px;
 }
 
 .hero p {
-    color: #c5d5ca;
+    color: #ddd;
+    line-height: 1.7;
+    margin-bottom: 25px;
 }
 
-.button {
+.btn {
     display: inline-block;
-    background: #00e676;
-    color: #07110b;
-    padding: 12px 22px;
-    margin-top: 20px;
-    border-radius: 5px;
+    padding: 13px 25px;
+    background: #d6b34d;
+    color: #080b0a;
     text-decoration: none;
+    border-radius: 5px;
     font-weight: bold;
 }
 
-.container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 35px 20px;
+section {
+    padding: 65px 8%;
 }
 
 .section-title {
-    color: #00e676;
-    margin-bottom: 20px;
-    border-left: 4px solid #00e676;
-    padding-left: 12px;
+    color: #e5c45c;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 35px;
 }
 
 .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
 }
 
 .card {
-    background: #142019;
-    padding: 20px;
+    background: #151b17;
+    padding: 24px;
+    border: 1px solid #343c32;
     border-radius: 10px;
-    border: 1px solid #253a2c;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #d6b34d;
 }
 
 .card h3 {
-    color: #00e676;
-    margin-bottom: 10px;
+    color: #e5c45c;
+    margin-bottom: 12px;
 }
 
 .card p {
-    color: #c5d5ca;
+    color: #ccc;
+    line-height: 1.6;
 }
 
-.tag {
-    color: #00e676;
-    font-size: 12px;
-    font-weight: bold;
-}
-
-.score {
-    font-size: 22px;
-    font-weight: bold;
-    margin: 12px 0;
-}
-
-.leagues {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-}
-
-.league {
-    background: #142019;
-    padding: 15px;
-    border-radius: 7px;
-    flex: 1 1 150px;
+.stat {
     text-align: center;
-    border: 1px solid #253a2c;
+    font-size: 30px;
+    color: #e5c45c;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.center {
+    text-align: center;
+    line-height: 1.8;
+    color: #ccc;
+    max-width: 750px;
+    margin: auto;
 }
 
 form {
     max-width: 450px;
+    margin: auto;
     display: flex;
-    gap: 10px;
-    margin-top: 15px;
+    flex-direction: column;
+    gap: 12px;
 }
 
 input {
-    min-width: 0;
-    flex: 1;
-    padding: 12px;
-    border: none;
+    padding: 14px;
+    border: 1px solid #555;
     border-radius: 5px;
+    background: #151b17;
+    color: white;
 }
 
 button {
-    background: #00e676;
+    padding: 14px;
+    background: #d6b34d;
     border: none;
-    padding: 12px;
     border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
 }
 
 #message {
-    margin-top: 12px;
-    color: #00e676;
+    text-align: center;
+    color: #e5c45c;
+    margin-top: 15px;
 }
 
 footer {
-    background: #101b15;
+    background: #101512;
+    border-top: 1px solid #b99a45;
+    padding: 30px;
     text-align: center;
-    padding: 25px;
-    margin-top: 30px;
-    color: #b8c8bd;
-}
-
-footer span {
-    color: #00e676;
+    color: #aaa;
+    line-height: 2;
 }
 
 @media(max-width: 600px) {
     header {
         flex-direction: column;
+        gap: 15px;
     }
 
     nav {
-        text-align: center;
+        justify-content: center;
     }
 
     .hero h1 {
-        font-size: 29px;
+        font-size: 34px;
     }
 }
 </style>
@@ -201,109 +200,116 @@ footer span {
 
 <header>
     <div class="logo">⚽ FOOTBALL ZONE</div>
-
     <nav>
         <a href="#home">Home</a>
+        <a href="#players">Players</a>
+        <a href="#stats">Stats</a>
         <a href="#news">News</a>
-        <a href="#scores">Scores</a>
-        <a href="#leagues">Leagues</a>
-        <a href="#transfers">Transfers</a>
+        <a href="#about">About</a>
     </nav>
 </header>
 
 <section class="hero" id="home">
-    <h1>WELCOME TO <span>FOOTBALL ZONE</span></h1>
-    <p>Your home for football news, match updates and transfer stories.</p>
-    <a href="#news" class="button">Explore Football News</a>
+    <h1>WELCOME TO FOOTBALL ZONE</h1>
+    <p>Your home for football news, legendary players, statistics and everything football.</p>
+    <a href="#news" class="btn">Explore Football</a>
 </section>
 
-<section class="container" id="news">
-    <h2 class="section-title">LATEST FOOTBALL NEWS</h2>
-
+<section id="players">
+    <h2 class="section-title">LEGENDARY PLAYERS</h2>
     <div class="cards">
         <div class="card">
-            <span class="tag">FOOTBALL NEWS</span>
-            <h3>Welcome to Football Zone</h3>
-            <p>Follow the biggest football stories, clubs and players from around the world.</p>
+            <h3>Cristiano Ronaldo</h3>
+            <p>One of football's greatest goalscorers, known for his achievements, athleticism and incredible career.</p>
         </div>
-
         <div class="card">
-            <span class="tag">MATCH UPDATES</span>
-            <h3>Football Action</h3>
-            <p>Stay informed about upcoming matches and important football results.</p>
+            <h3>Lionel Messi</h3>
+            <p>A legendary playmaker celebrated for his dribbling, creativity, goals and extraordinary career.</p>
         </div>
-
         <div class="card">
-            <span class="tag">TRANSFER NEWS</span>
-            <h3>Transfer Centre</h3>
-            <p>Follow player transfer rumours, confirmed moves and club announcements.</p>
+            <h3>Kylian Mbappé</h3>
+            <p>A world-class forward known for his pace, finishing and performances on the biggest stages.</p>
         </div>
     </div>
 </section>
 
-<section class="container" id="scores">
-    <h2 class="section-title">LIVE SCORES</h2>
-
-    <div class="card">
-        <h3>Match Centre</h3>
-        <p>Live scores are not connected yet.</p>
-        <p>We'll connect a football scores API in the next stage.</p>
+<section id="stats">
+    <h2 class="section-title">FOOTBALL ZONE STATS</h2>
+    <div class="cards">
+        <div class="card">
+            <div class="stat">⚽</div>
+            <h3>Football</h3>
+            <p>Celebrating the beautiful game.</p>
+        </div>
+        <div class="card">
+            <div class="stat">🌍</div>
+            <h3>Worldwide</h3>
+            <p>Following football across the world.</p>
+        </div>
+        <div class="card">
+            <div class="stat">🏆</div>
+            <h3>Competitions</h3>
+            <p>From domestic leagues to international tournaments.</p>
+        </div>
     </div>
 </section>
 
-<section class="container" id="leagues">
-    <h2 class="section-title">POPULAR LEAGUES</h2>
-
-    <div class="leagues">
-        <div class="league">🏆 Premier League</div>
-        <div class="league">🇪🇸 La Liga</div>
-        <div class="league">🇮🇹 Serie A</div>
-        <div class="league">🇩🇪 Bundesliga</div>
-        <div class="league">🇫🇷 Ligue 1</div>
-        <div class="league">🌍 Champions League</div>
+<section id="news">
+    <h2 class="section-title">LATEST FOOTBALL NEWS</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Transfer News</h3>
+            <p>Follow player transfers, rumours and club developments.</p>
+        </div>
+        <div class="card">
+            <h3>Match Updates</h3>
+            <p>Stay informed about important football matches and results.</p>
+        </div>
+        <div class="card">
+            <h3>Football Stories</h3>
+            <p>Discover interesting stories about clubs and players.</p>
+        </div>
     </div>
 </section>
 
-<section class="container" id="transfers">
-    <h2 class="section-title">TRANSFER CENTRE</h2>
-
-    <div class="card">
-        <h3>Latest Transfer Updates</h3>
-        <p>Transfer updates will appear here when we connect a football news source.</p>
-    </div>
+<section id="about">
+    <h2 class="section-title">ABOUT FOOTBALL ZONE</h2>
+    <p class="center">
+        Football Zone is a football website created for fans of the beautiful game.
+        Our goal is to bring football lovers together through news, players,
+        statistics, competitions and exciting football content.
+    </p>
 </section>
 
-<section class="container">
-    <h2 class="section-title">JOIN FOOTBALL ZONE</h2>
-    <p>Subscribe to receive updates from Football Zone.</p>
-
-    <form onsubmit="subscribe(event)">
-        <input type="email" id="email"
-        placeholder="Enter your email" required>
-        <button type="submit">Subscribe</button>
+<section id="subscribe">
+    <h2 class="section-title">JOIN OUR COMMUNITY</h2>
+    <form id="subscribeForm">
+        <input type="email" id="email" placeholder="Enter your email address" required>
+        <button type="submit">Subscribe Now</button>
     </form>
-
     <p id="message"></p>
 </section>
 
 <footer>
-    <p>© 2026 <span>FOOTBALL ZONE</span></p>
+    <p>© 2026 <span style="color:#e5c45c">FOOTBALL ZONE</span></p>
     <p>Made for football lovers ⚽</p>
+    <p><a href="#home" style="color:#e5c45c">Back to top ↑</a></p>
 </footer>
 
 <script>
-function subscribe(event) {
+document.getElementById("subscribeForm").addEventListener("submit", function(event) {
     event.preventDefault();
 
     const email = document.getElementById("email").value;
 
     document.getElementById("message").textContent =
-        "Thanks for your interest! Email entered: " + email;
+        "Thank you for your interest! " + email;
 
-    document.getElementById("email").value = "";
-}
+    this.reset();
+});
 </script>
 
 </body>
 </html>
+
 
