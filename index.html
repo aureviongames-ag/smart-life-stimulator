@@ -4,194 +4,486 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Football Zone | Home</title>
+<meta name="theme-color" content="#07130e">
+<title>Football Zone | The Home of Football</title>
 
 <style>
+:root {
+  --bg: #07130e;
+  --panel: #101f17;
+  --panel2: #17291e;
+  --green: #20d47a;
+  --gold: #e8c45c;
+  --white: #ffffff;
+  --muted: #a6b5aa;
+  --border: #263d2e;
+}
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
-    background: #080b0a;
-    color: white;
-    font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--white);
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+button, input {
+  font: inherit;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 header {
-    background: #101512;
-    padding: 18px 7%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    border-bottom: 1px solid #b99a45;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(7,19,14,.97);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
-    color: #e5c45c;
-    font-size: 23px;
-    font-weight: bold;
+  font-size: 23px;
+  font-weight: 900;
+  color: var(--green);
+}
+
+.logo span {
+  color: var(--gold);
 }
 
 nav {
-    display: flex;
-    gap: 18px;
-    flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  gap: 23px;
 }
 
 nav a {
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
+  color: #ddd;
+  font-size: 14px;
+  transition: .2s;
 }
 
 nav a:hover {
-    color: #e5c45c;
+  color: var(--green);
+}
+
+.menu-btn {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: white;
+  padding: 7px 12px;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
 .hero {
-    min-height: 420px;
-    padding: 100px 8%;
-    background: linear-gradient(90deg, #080b0a, #17251b);
-    text-align: center;
+  min-height: 470px;
+  padding: 100px 7%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background:
+    linear-gradient(90deg, rgba(3,13,8,.97), rgba(3,13,8,.55)),
+    radial-gradient(circle at 80% 40%, #176c3d, #07130e 65%);
+}
+
+.tag {
+  color: var(--green);
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-size: 12px;
 }
 
 .hero h1 {
-    font-size: 46px;
-    color: #e5c45c;
-    margin-bottom: 18px;
+  font-size: clamp(38px, 7vw, 68px);
+  line-height: 1.1;
+  max-width: 750px;
+  margin: 18px 0;
+}
+
+.hero h1 span {
+  color: var(--green);
 }
 
 .hero p {
-    color: #ddd;
-    line-height: 1.7;
-    margin-bottom: 25px;
+  color: var(--muted);
+  max-width: 560px;
+  margin-bottom: 28px;
 }
 
 .btn {
-    display: inline-block;
-    padding: 13px 25px;
-    background: #d6b34d;
-    color: #080b0a;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
+  display: inline-block;
+  background: var(--green);
+  color: #041109;
+  padding: 12px 23px;
+  border: 0;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.btn:hover {
+  background: var(--gold);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: white;
+  border: 1px solid var(--green);
+  margin-left: 10px;
 }
 
 section {
-    padding: 65px 8%;
+  padding: 65px 7%;
+  scroll-margin-top: 75px;
 }
 
-.section-title {
-    color: #e5c45c;
-    text-align: center;
-    font-size: 30px;
-    margin-bottom: 35px;
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 30px;
 }
 
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 22px;
+.section-heading h2 {
+  font-size: 27px;
 }
 
-.card {
-    background: #151b17;
-    padding: 24px;
-    border: 1px solid #343c32;
-    border-radius: 10px;
-    transition: 0.3s;
+.section-heading h2 span {
+  color: var(--green);
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    border-color: #d6b34d;
+.muted {
+  color: var(--muted);
+  font-size: 13px;
 }
 
-.card h3 {
-    color: #e5c45c;
-    margin-bottom: 12px;
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px;
 }
 
-.card p {
-    color: #ccc;
-    line-height: 1.6;
+.matches {
+  background: #0a1911;
 }
 
-.stat {
-    text-align: center;
-    font-size: 30px;
-    color: #e5c45c;
-    font-weight: bold;
-    margin-bottom: 10px;
+.match-grid, .news-grid, .player-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 18px;
 }
 
-.center {
-    text-align: center;
-    line-height: 1.8;
-    color: #ccc;
-    max-width: 750px;
-    margin: auto;
+.match-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  padding: 20px;
+  border-radius: 10px;
+  transition: .25s;
 }
 
-form {
-    max-width: 450px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+.match-card:hover, .news-card:hover, .player-card:hover {
+  border-color: var(--green);
+  transform: translateY(-4px);
 }
 
-input {
-    padding: 14px;
-    border: 1px solid #555;
-    border-radius: 5px;
-    background: #151b17;
-    color: white;
+.match-league {
+  color: var(--green);
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 15px;
 }
 
-button {
-    padding: 14px;
-    background: #d6b34d;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
+.teams {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.team {
+  flex: 1;
+}
+
+.team-icon {
+  display: block;
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.vs {
+  color: var(--gold);
+  font-size: 12px;
+}
+
+.match-time {
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 17px;
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+}
+
+.live-label {
+  color: #ff6262;
+  font-weight: bold;
+}
+
+.filter-bar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+}
+
+.filter-btn {
+  background: var(--panel);
+  color: white;
+  border: 1px solid var(--border);
+  padding: 9px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.filter-btn.active, .filter-btn:hover {
+  background: var(--green);
+  color: #06130b;
+}
+
+.news-card, .player-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: .25s;
+}
+
+.news-image {
+  min-height: 135px;
+  display: grid;
+  place-items: center;
+  font-size: 55px;
+  background: linear-gradient(135deg,#164a2b,#101f17);
+}
+
+.news-content, .player-content {
+  padding: 20px;
+}
+
+.news-content h3, .player-content h3 {
+  margin: 8px 0;
+}
+
+.news-content p, .player-content p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.read-link {
+  display: inline-block;
+  color: var(--green);
+  margin-top: 14px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.player-card {
+  padding: 25px;
+  text-align: center;
+}
+
+.player-icon {
+  font-size: 65px;
+}
+
+.player-content button {
+  margin-top: 15px;
+  background: transparent;
+  border: 1px solid var(--green);
+  color: var(--green);
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.player-content button:hover {
+  background: var(--green);
+  color: #06130b;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 400px;
+}
+
+th, td {
+  padding: 14px 12px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  color: var(--green);
+  font-size: 13px;
+}
+
+td {
+  font-size: 14px;
+}
+
+td:nth-child(2) {
+  text-align: left;
+  font-weight: bold;
+}
+
+.search-box {
+  width: 100%;
+  max-width: 350px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--panel);
+  color: white;
+  outline: none;
+}
+
+.search-box:focus {
+  border-color: var(--green);
+}
+
+.empty {
+  color: var(--muted);
+  text-align: center;
+  padding: 25px;
+  grid-column: 1/-1;
+}
+
+.about {
+  background: #0a1911;
+}
+
+.about p {
+  color: var(--muted);
+  max-width: 750px;
+  margin: auto;
+  text-align: center;
+}
+
+.subscribe {
+  text-align: center;
+}
+
+.subscribe form {
+  display: flex;
+  gap: 10px;
+  max-width: 480px;
+  margin: 25px auto 0;
+}
+
+.subscribe input {
+  flex: 1;
+  min-width: 0;
+  padding: 13px;
+  background: var(--panel);
+  color: white;
+  border: 1px solid var(--border);
+  border-radius: 6px;
 }
 
 #message {
-    text-align: center;
-    color: #e5c45c;
-    margin-top: 15px;
+  color: var(--green);
+  margin-top: 15px;
 }
 
 footer {
-    background: #101512;
-    border-top: 1px solid #b99a45;
-    padding: 30px;
-    text-align: center;
-    color: #aaa;
-    line-height: 2;
+  background: #030b06;
+  padding: 35px 7%;
+  text-align: center;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
 }
 
-@media(max-width: 600px) {
-    header {
-        flex-direction: column;
-        gap: 15px;
-    }
+footer .logo {
+  margin-bottom: 10px;
+}
 
-    nav {
-        justify-content: center;
-    }
+footer a {
+  color: var(--green);
+}
 
-    .hero h1 {
-        font-size: 34px;
-    }
+@media(max-width: 700px) {
+  header {
+    padding: 13px 5%;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    padding: 22px;
+    background: #0b1910;
+    flex-direction: column;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--border);
+  }
+
+  nav.open {
+    display: flex;
+  }
+
+  .hero {
+    min-height: 420px;
+    padding: 75px 6%;
+  }
+
+  section {
+    padding: 48px 5%;
+  }
+
+  .subscribe form {
+    flex-direction: column;
+  }
+
+  .btn-outline {
+    margin: 10px 0 0;
+  }
 }
 </style>
 </head>
@@ -199,117 +491,379 @@ footer {
 <body>
 
 <header>
-    <div class="logo">⚽ FOOTBALL ZONE</div>
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#players">Players</a>
-        <a href="#stats">Stats</a>
-        <a href="#news">News</a>
-        <a href="#about">About</a>
-    </nav>
+  <a href="#home" class="logo">⚽ FOOTBALL <span>ZONE</span></a>
+
+  <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
+
+  <nav id="navigation">
+    <a href="#home">Home</a>
+    <a href="#matches">Matches</a>
+    <a href="#news">News</a>
+    <a href="#players">Players</a>
+    <a href="#standings">Standings</a>
+    <a href="#about">About</a>
+  </nav>
 </header>
 
+<main>
+
 <section class="hero" id="home">
-    <h1>WELCOME TO FOOTBALL ZONE</h1>
-    <p>Your home for football news, legendary players, statistics and everything football.</p>
-    <a href="#news" class="btn">Explore Football</a>
+  <span class="tag">THE BEAUTIFUL GAME</span>
+
+  <h1>YOUR WORLD OF <span>FOOTBALL</span></h1>
+
+  <p>
+    Welcome to Football Zone. Discover football stories,
+    match information, legendary players and the latest
+    developments from around the world.
+  </p>
+
+  <div>
+    <a href="#matches" class="btn">Explore Matches ⚽</a>
+    <a href="#news" class="btn btn-outline">Read News</a>
+  </div>
 </section>
 
-<section id="players">
-    <h2 class="section-title">LEGENDARY PLAYERS</h2>
-    <div class="cards">
-        <div class="card">
-            <h3>Cristiano Ronaldo</h3>
-            <p>One of football's greatest goalscorers, known for his achievements, athleticism and incredible career.</p>
-        </div>
-        <div class="card">
-            <h3>Lionel Messi</h3>
-            <p>A legendary playmaker celebrated for his dribbling, creativity, goals and extraordinary career.</p>
-        </div>
-        <div class="card">
-            <h3>Kylian Mbappé</h3>
-            <p>A world-class forward known for his pace, finishing and performances on the biggest stages.</p>
-        </div>
-    </div>
-</section>
+<section class="matches" id="matches">
 
-<section id="stats">
-    <h2 class="section-title">FOOTBALL ZONE STATS</h2>
-    <div class="cards">
-        <div class="card">
-            <div class="stat">⚽</div>
-            <h3>Football</h3>
-            <p>Celebrating the beautiful game.</p>
-        </div>
-        <div class="card">
-            <div class="stat">🌍</div>
-            <h3>Worldwide</h3>
-            <p>Following football across the world.</p>
-        </div>
-        <div class="card">
-            <div class="stat">🏆</div>
-            <h3>Competitions</h3>
-            <p>From domestic leagues to international tournaments.</p>
-        </div>
+  <div class="section-heading">
+    <div>
+      <h2>MATCH <span>CENTRE</span></h2>
+      <p class="muted">Explore featured fixtures</p>
     </div>
+    <span class="muted" id="today"></span>
+  </div>
+
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="Premier League">Premier League</button>
+    <button class="filter-btn" data-filter="La Liga">La Liga</button>
+    <button class="filter-btn" data-filter="Champions League">Champions League</button>
+  </div>
+
+  <div class="match-grid" id="matchGrid">
+
+    <article class="match-card" data-league="Premier League">
+      <div class="match-league">PREMIER LEAGUE</div>
+      <div class="teams">
+        <div class="team"><span class="team-icon">🔴</span>Arsenal</div>
+        <span class="vs">VS</span>
+        <div class="team"><span class="team-icon">🔵</span>Chelsea</div>
+      </div>
+      <div class="match-time">Featured matchup</div>
+    </article>
+
+    <article class="match-card" data-league="La Liga">
+      <div class="match-league">LA LIGA</div>
+      <div class="teams">
+        <div class="team"><span class="team-icon">⚪</span>Real Madrid</div>
+        <span class="vs">VS</span>
+        <div class="team"><span class="team-icon">🔵🔴</span>Barcelona</div>
+      </div>
+      <div class="match-time">Featured matchup</div>
+    </article>
+
+    <article class="match-card" data-league="Champions League">
+      <div class="match-league">CHAMPIONS LEAGUE</div>
+      <div class="teams">
+        <div class="team"><span class="team-icon">🔴</span>Liverpool</div>
+        <span class="vs">VS</span>
+        <div class="team"><span class="team-icon">🔵</span>PSG</div>
+      </div>
+      <div class="match-time">Featured matchup</div>
+    </article>
+
+  </div>
+
+  <p class="muted" style="margin-top:18px">
+    Note: These are sample matchups, not confirmed fixtures or live scores.
+  </p>
 </section>
 
 <section id="news">
-    <h2 class="section-title">LATEST FOOTBALL NEWS</h2>
-    <div class="cards">
-        <div class="card">
-            <h3>Transfer News</h3>
-            <p>Follow player transfers, rumours and club developments.</p>
-        </div>
-        <div class="card">
-            <h3>Match Updates</h3>
-            <p>Stay informed about important football matches and results.</p>
-        </div>
-        <div class="card">
-            <h3>Football Stories</h3>
-            <p>Discover interesting stories about clubs and players.</p>
-        </div>
+
+  <div class="section-heading">
+    <div>
+      <h2>FOOTBALL <span>NEWS</span></h2>
+      <p class="muted">Explore football coverage</p>
     </div>
+  </div>
+
+  <input
+    class="search-box"
+    type="search"
+    id="newsSearch"
+    placeholder="Search football topics..."
+    aria-label="Search football topics"
+  >
+
+  <div class="news-grid" id="newsGrid" style="margin-top:25px">
+
+    <article class="news-card">
+      <div class="news-image">🏆</div>
+      <div class="news-content">
+        <span class="tag">COMPETITIONS</span>
+        <h3>European Football</h3>
+        <p>Explore the biggest European football competitions and their clubs.</p>
+        <a class="read-link" href="https://www.uefa.com/" target="_blank" rel="noopener">Explore UEFA →</a>
+      </div>
+    </article>
+
+    <article class="news-card">
+      <div class="news-image">🔄</div>
+      <div class="news-content">
+        <span class="tag">TRANSFERS</span>
+        <h3>Transfer Centre</h3>
+        <p>Explore football transfer coverage and player movement.</p>
+        <a class="read-link" href="https://www.bbc.com/sport/football" target="_blank" rel="noopener">Football coverage →</a>
+      </div>
+    </article>
+
+    <article class="news-card">
+      <div class="news-image">🌍</div>
+      <div class="news-content">
+        <span class="tag">WORLD FOOTBALL</span>
+        <h3>Global Football</h3>
+        <p>Discover stories and developments from football around the world.</p>
+        <a class="read-link" href="https://www.espn.com/soccer/" target="_blank" rel="noopener">Explore ESPN →</a>
+      </div>
+    </article>
+
+  </div>
 </section>
 
-<section id="about">
-    <h2 class="section-title">ABOUT FOOTBALL ZONE</h2>
-    <p class="center">
-        Football Zone is a football website created for fans of the beautiful game.
-        Our goal is to bring football lovers together through news, players,
-        statistics, competitions and exciting football content.
-    </p>
+<section id="players" class="matches">
+
+  <div class="section-heading">
+    <div>
+      <h2>STAR <span>PLAYERS</span></h2>
+      <p class="muted">Football's biggest names</p>
+    </div>
+  </div>
+
+  <div class="player-grid">
+
+    <article class="player-card">
+      <div class="player-icon">🐐</div>
+      <div class="player-content">
+        <h3>Cristiano Ronaldo</h3>
+        <p>Portugal · Forward</p>
+        <button onclick="showPlayer('Cristiano Ronaldo','One of football’s most celebrated goalscorers.')">View Profile</button>
+      </div>
+    </article>
+
+    <article class="player-card">
+      <div class="player-icon">⭐</div>
+      <div class="player-content">
+        <h3>Lionel Messi</h3>
+        <p>Argentina · Forward</p>
+        <button onclick="showPlayer('Lionel Messi','A legendary playmaker known for his creativity and finishing.')">View Profile</button>
+      </div>
+    </article>
+
+    <article class="player-card">
+      <div class="player-icon">⚡</div>
+      <div class="player-content">
+        <h3>Kylian Mbappé</h3>
+        <p>France · Forward</p>
+        <button onclick="showPlayer('Kylian Mbappé','A world-class forward known for his pace and finishing.')">View Profile</button>
+      </div>
+    </article>
+
+  </div>
 </section>
 
-<section id="subscribe">
-    <h2 class="section-title">JOIN OUR COMMUNITY</h2>
-    <form id="subscribeForm">
-        <input type="email" id="email" placeholder="Enter your email address" required>
-        <button type="submit">Subscribe Now</button>
-    </form>
-    <p id="message"></p>
+<section id="standings">
+
+  <div class="section-heading">
+    <div>
+      <h2>LEAGUE <span>STANDINGS</span></h2>
+      <p class="muted">Sample Premier League table</p>
+    </div>
+  </div>
+
+  <div class="panel table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Club</th>
+          <th>MP</th>
+          <th>W</th>
+          <th>D</th>
+          <th>L</th>
+          <th>PTS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Arsenal</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td>2</td><td>Manchester City</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td>3</td><td>Liverpool</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td>4</td><td>Chelsea</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td>5</td><td>Manchester United</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="muted" style="margin-top:15px">
+    Sample layout only. Actual league standings require a football data source.
+  </p>
 </section>
+
+<section class="about" id="about">
+  <h2 class="section-heading" style="justify-content:center">
+    ABOUT <span style="color:var(--green)">FOOTBALL ZONE</span>
+  </h2>
+
+  <p>
+    Football Zone is built for football lovers.
+    Our mission is to create a place where fans can explore
+    football news, players, competitions, statistics and
+    exciting stories about the beautiful game.
+  </p>
+</section>
+
+<section class="subscribe">
+  <h2>JOIN THE <span style="color:var(--green)">FOOTBALL COMMUNITY</span></h2>
+  <p class="muted">Enter your email to try our local subscription form.</p>
+
+  <form id="subscribeForm">
+    <input type="email" id="email" placeholder="Enter your email address" required>
+    <button type="submit" class="btn">Subscribe</button>
+  </form>
+
+  <p id="message"></p>
+</section>
+
+</main>
 
 <footer>
-    <p>© 2026 <span style="color:#e5c45c">FOOTBALL ZONE</span></p>
-    <p>Made for football lovers ⚽</p>
-    <p><a href="#home" style="color:#e5c45c">Back to top ↑</a></p>
+  <div class="logo">⚽ FOOTBALL <span>ZONE</span></div>
+  <p>Made for football lovers around the world.</p>
+  <p>© 2026 Football Zone. All rights reserved.</p>
+  <p style="margin-top:12px">
+    <a href="#home">Back to top ↑</a>
+  </p>
 </footer>
 
 <script>
-document.getElementById("subscribeForm").addEventListener("submit", function(event) {
-    event.preventDefault();
 
-    const email = document.getElementById("email").value;
+// MOBILE MENU
+const menuBtn = document.getElementById("menuBtn");
+const navigation = document.getElementById("navigation");
 
-    document.getElementById("message").textContent =
-        "Thank you for your interest! " + email;
-
-    this.reset();
+menuBtn.addEventListener("click", function() {
+  navigation.classList.toggle("open");
+  menuBtn.textContent =
+    navigation.classList.contains("open") ? "✕" : "☰";
 });
+
+// CLOSE MENU AFTER NAVIGATION
+document.querySelectorAll("nav a").forEach(link => {
+  link.addEventListener("click", function() {
+    navigation.classList.remove("open");
+    menuBtn.textContent = "☰";
+  });
+});
+
+// TODAY'S DATE
+document.getElementById("today").textContent =
+  new Date().toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "short",
+    year: "numeric"
+  });
+
+// MATCH FILTER
+const filterButtons = document.querySelectorAll(".filter-btn");
+const matchCards = document.querySelectorAll(".match-card");
+
+filterButtons.forEach(button => {
+  button.addEventListener("click", function() {
+
+    filterButtons.forEach(btn => btn.classList.remove("active"));
+    this.classList.add("active");
+
+    const filter = this.dataset.filter;
+
+    matchCards.forEach(card => {
+      card.style.display =
+        filter === "all" || card.dataset.league === filter
+        ? "block" : "none";
+    });
+
+  });
+});
+
+// NEWS SEARCH
+const newsSearch = document.getElementById("newsSearch");
+const newsCards = document.querySelectorAll(".news-card");
+
+newsSearch.addEventListener("input", function() {
+
+  const search = this.value.toLowerCase();
+  let visible = 0;
+
+  newsCards.forEach(card => {
+    const matches = card.textContent.toLowerCase().includes(search);
+
+    card.style.display = matches ? "block" : "none";
+
+    if(matches) visible++;
+  });
+
+  let empty = document.getElementById("noNews");
+
+  if(!visible) {
+    if(!empty) {
+      empty = document.createElement("p");
+      empty.id = "noNews";
+      empty.className = "empty";
+      empty.textContent = "No matching topics found.";
+      document.getElementById("newsGrid").appendChild(empty);
+    }
+  } else if(empty) {
+    empty.remove();
+  }
+
+});
+
+// PLAYER PROFILE BUTTONS
+function showPlayer(name, description) {
+  alert(name + "\n\n" + description);
+}
+
+// SUBSCRIPTION FORM
+document.getElementById("subscribeForm")
+.addEventListener("submit", function(event) {
+
+  event.preventDefault();
+
+  const email = document.getElementById("email").value.trim();
+
+  if(!email) return;
+
+  document.getElementById("message").textContent =
+    "Thanks for your interest! " + email +
+    " was entered successfully.";
+
+  this.reset();
+
+});
+
+// BUTTON INTERACTION EFFECT
+document.querySelectorAll(".btn, .filter-btn, .player-content button")
+.forEach(button => {
+  button.addEventListener("click", function() {
+    this.style.opacity = "0.75";
+
+    setTimeout(() => {
+      this.style.opacity = "1";
+    }, 150);
+  });
+});
+
 </script>
 
 </body>
 </html>
-
-
