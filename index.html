@@ -1,4 +1,289 @@
-    </p>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Football Zone | Football News</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #080d0b;
+    color: white;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    background: #101b15;
+    padding: 20px;
+    border-bottom: 2px solid #00e676;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #00e676;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 8px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #00e676;
+}
+
+.hero {
+    padding: 65px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #123c27, #080d0b);
+}
+
+.hero h1 {
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+
+.hero span {
+    color: #00e676;
+}
+
+.hero p {
+    color: #c5d5ca;
+}
+
+.button {
+    display: inline-block;
+    background: #00e676;
+    color: #07110b;
+    padding: 12px 22px;
+    margin-top: 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 35px 20px;
+}
+
+.section-title {
+    color: #00e676;
+    margin-bottom: 20px;
+    border-left: 4px solid #00e676;
+    padding-left: 12px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #142019;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #253a2c;
+}
+
+.card h3 {
+    color: #00e676;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #c5d5ca;
+}
+
+.tag {
+    color: #00e676;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.score {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 12px 0;
+}
+
+.leagues {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.league {
+    background: #142019;
+    padding: 15px;
+    border-radius: 7px;
+    flex: 1 1 150px;
+    text-align: center;
+    border: 1px solid #253a2c;
+}
+
+form {
+    max-width: 450px;
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+input {
+    min-width: 0;
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+}
+
+button {
+    background: #00e676;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#message {
+    margin-top: 12px;
+    color: #00e676;
+}
+
+footer {
+    background: #101b15;
+    text-align: center;
+    padding: 25px;
+    margin-top: 30px;
+    color: #b8c8bd;
+}
+
+footer span {
+    color: #00e676;
+}
+
+@media(max-width: 600px) {
+    header {
+        flex-direction: column;
+    }
+
+    nav {
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 29px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">⚽ FOOTBALL ZONE</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#news">News</a>
+        <a href="#scores">Scores</a>
+        <a href="#leagues">Leagues</a>
+        <a href="#transfers">Transfers</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <h1>WELCOME TO <span>FOOTBALL ZONE</span></h1>
+    <p>Your home for football news, match updates and transfer stories.</p>
+    <a href="#news" class="button">Explore Football News</a>
+</section>
+
+<section class="container" id="news">
+    <h2 class="section-title">LATEST FOOTBALL NEWS</h2>
+
+    <div class="cards">
+        <div class="card">
+            <span class="tag">FOOTBALL NEWS</span>
+            <h3>Welcome to Football Zone</h3>
+            <p>Follow the biggest football stories, clubs and players from around the world.</p>
+        </div>
+
+        <div class="card">
+            <span class="tag">MATCH UPDATES</span>
+            <h3>Football Action</h3>
+            <p>Stay informed about upcoming matches and important football results.</p>
+        </div>
+
+        <div class="card">
+            <span class="tag">TRANSFER NEWS</span>
+            <h3>Transfer Centre</h3>
+            <p>Follow player transfer rumours, confirmed moves and club announcements.</p>
+        </div>
+    </div>
+</section>
+
+<section class="container" id="scores">
+    <h2 class="section-title">LIVE SCORES</h2>
+
+    <div class="card">
+        <h3>Match Centre</h3>
+        <p>Live scores are not connected yet.</p>
+        <p>We'll connect a football scores API in the next stage.</p>
+    </div>
+</section>
+
+<section class="container" id="leagues">
+    <h2 class="section-title">POPULAR LEAGUES</h2>
+
+    <div class="leagues">
+        <div class="league">🏆 Premier League</div>
+        <div class="league">🇪🇸 La Liga</div>
+        <div class="league">🇮🇹 Serie A</div>
+        <div class="league">🇩🇪 Bundesliga</div>
+        <div class="league">🇫🇷 Ligue 1</div>
+        <div class="league">🌍 Champions League</div>
+    </div>
+</section>
+
+<section class="container" id="transfers">
+    <h2 class="section-title">TRANSFER CENTRE</h2>
+
+    <div class="card">
+        <h3>Latest Transfer Updates</h3>
+        <p>Transfer updates will appear here when we connect a football news source.</p>
+    </div>
+</section>
+
+<section class="container">
+    <h2 class="section-title">JOIN FOOTBALL ZONE</h2>
+    <p>Subscribe to receive updates from Football Zone.</p>
+
+    <form onsubmit="subscribe(event)">
+        <input type="email" id="email"
+        placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+    </form>
+
+    <p id="message"></p>
 </section>
 
 <footer>
@@ -21,3 +306,4 @@ function subscribe(event) {
 
 </body>
 </html>
+
