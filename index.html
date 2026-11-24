@@ -529,7 +529,27 @@ footer strong {
       <button class="btn btn-primary" id="refresh-btn">↻ Refresh</button>
     </div>
 
-    <div class="controls">
+    <div class="alert-tools">
+  <h3>⚽ Goal Alerts</h3>
+  <label for="favorite-teams">
+    Enter your favourite teams (separate with commas)
+  </label>
+  <input
+    id="favorite-teams"
+    type="text"
+    placeholder="e.g. Arsenal, Barcelona, Real Madrid"
+  >
+  <button
+    class="btn btn-primary"
+    id="enable-alerts"
+    type="button"
+  >
+    Enable Goal Alerts
+  </button>
+  <p id="alert-status" aria-live="polite">
+    Choose your favourite teams to set up alerts.
+  </p>
+</div>
       <select id="league-filter" aria-label="Filter by league">
         <option value="all">All competitions</option>
         <option value="eng.1">Premier League</option>
