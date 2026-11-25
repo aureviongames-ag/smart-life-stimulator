@@ -1,0 +1,9 @@
+
+{
+  "name": "Football Zone",
+  "short_name": "Football Zone",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07130e",
+  "theme_color": "#07130e"
+}
